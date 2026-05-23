@@ -1,126 +1,154 @@
-const services = [
+const values = [
   {
-    title: 'Electrician',
-    text: 'Repairs, installations, and wiring upgrades.',
-    image:
-      'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=900&q=80',
+    title: 'Trust First',
+    text: 'Every service partner is background-checked, reviewed, and quality-monitored to ensure peace of mind for every booking.',
+    icon: '🛡️',
   },
   {
-    title: 'Plumber',
-    text: 'Leak repairs, drain cleaning, and pipe work.',
-    image:
-      'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=900&q=80',
+    title: 'Fast & Flexible',
+    text: 'Book in minutes, reschedule with ease, and get matched to nearby professionals based on real-time availability.',
+    icon: '⚡',
   },
   {
-    title: 'Cleaner',
-    text: 'Standard cleaning, deep clean, and move-out.',
-    image:
-      'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    title: 'Carpenter',
-    text: 'Furniture assembly, repairs, and custom builds.',
-    image:
-      'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    title: 'HVAC specialist',
-    text: 'Heating, cooling, and air quality systems.',
-    image:
-      'https://images.unsplash.com/photo-1631545806626-0f5b6ca7d317?auto=format&fit=crop&w=900&q=80',
+    title: 'Transparent Pricing',
+    text: 'No hidden fees. Upfront estimates, clear scopes, and secure payments make every project predictable.',
+    icon: '💳',
   },
 ];
 
-const testimonials = [
-  '“The electrician arrived exactly on time and fixed our wiring issue in under an hour.”',
-  '“Booking a cleaner was so easy. My apartment has never looked this good.”',
-  '“I was worried about finding a plumber on a weekend, but they connected me instantly.”',
+const stats = [
+  { number: '25K+', label: 'Jobs Completed' },
+  { number: '4.9/5', label: 'Average Rating' },
+  { number: '350+', label: 'Verified Professionals' },
+  { number: '42', label: 'Cities Covered' },
+];
+
+const team = [
+  {
+    name: 'Mia Rodriguez',
+    role: 'Founder & CEO',
+    image:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=700&q=80',
+  },
+  {
+    name: 'Ethan Walker',
+    role: 'Head of Operations',
+    image:
+      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=700&q=80',
+  },
+  {
+    name: 'Ava Thompson',
+    role: 'Product Design Lead',
+    image:
+      'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=700&q=80',
+  },
 ];
 
 function App() {
   return (
-    <div className="page">
+    <div className="about-page">
       <header className="topbar container">
-        <div className="brand">🏠 HomeXPros</div>
-        <nav>
-          <a href="#">Home</a><a href="#">How It Works</a><a href="#">About Us</a><a href="#">My Bookings</a>
+        <a href="#" className="brand">HomeXPros</a>
+        <nav className="nav-links">
+          <a href="#">Home</a>
+          <a href="#">Services</a>
+          <a href="#" className="active">About</a>
+          <a href="#">Contact</a>
         </nav>
-        <div className="actions"><button className="ghost">Log In</button><button className="primary">Book a Service</button></div>
+        <button className="btn btn-primary">Book Now</button>
       </header>
 
       <section className="hero">
-        <div className="container hero-inner">
-          <div>
-            <h1>All Your Home Services,<br />One Trusted Platform</h1>
-            <p>Connect with verified experts for all your home service needs. Fast, reliable, and transparent.</p>
-            <div className="cta-row"><button className="primary">Book a Service</button><button className="white">Become a Pro</button></div>
-            <div className="badges"><span>✅ Background Checked</span><span>✅ Insured Work</span></div>
+        <div className="container hero-grid">
+          <div className="hero-copy">
+            <p className="eyebrow">ABOUT US</p>
+            <h1>We’re Building the Most Trusted Home Service Experience</h1>
+            <p>
+              HomeXPros helps homeowners connect with verified local professionals for repairs,
+              maintenance, and upgrades—quickly, safely, and confidently.
+            </p>
+            <div className="hero-actions">
+              <button className="btn btn-primary">Get Started</button>
+              <button className="btn btn-light">Learn More</button>
+            </div>
           </div>
-          <img className="hero-person" src="https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?auto=format&fit=crop&w=900&q=80" alt="service pro" />
+          <div className="hero-media">
+            <img
+              src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=80"
+              alt="Home service professional"
+            />
+          </div>
         </div>
       </section>
 
-      <main className="container">
-        <section className="block">
-          <h2>Popular Services</h2>
-          <p>Book verified professionals for a wide range of home services.</p>
-          <div className="grid-services">
-            {services.map((s) => (
-              <article key={s.title} className="service-card">
-                <img src={s.image} alt={s.title} />
-                <div><h3>{s.title}</h3><p>{s.text}</p></div>
-              </article>
-            ))}
-          </div>
-        </section>
+      <section className="container stats" aria-label="Company statistics">
+        {stats.map((item) => (
+          <article key={item.label}>
+            <h3>{item.number}</h3>
+            <p>{item.label}</p>
+          </article>
+        ))}
+      </section>
 
-        <section className="steps">
-          {['Book Online', 'Get Matched', 'Job Done', 'Pay Securely'].map((step, i) => (
-            <div key={step}><span>{i + 1}</span><h4>{step}</h4></div>
-          ))}
-        </section>
-
-        <section className="why block">
-          <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1200&q=80" alt="family" />
-          <div>
-            <h2>Why homeowners choose HomeXPro</h2>
-            <ul>
-              <li>🛡️ Verified Professionals</li>
-              <li>🕒 Quick Booking</li>
-              <li>💲 Transparent Pricing</li>
-              <li>🎧 24/7 Support</li>
-            </ul>
-          </div>
-        </section>
-
-        <section className="feature-row">
-          <article>🛡️<h4>Verified Professionals</h4></article>
-          <article>🕒<h4>Fast Response</h4></article>
-          <article>⭐<h4>Quality Guaranteed</h4></article>
-        </section>
-
-        <section className="block">
-          <h2>Loved by thousands</h2>
-          <div className="testimonials">
-            {testimonials.map((t, i) => <article key={i}><div className="stars">★★★★★</div><p>{t}</p></article>)}
-          </div>
-        </section>
-
-        <section className="cta">
-          <h2>Ready to get started?</h2>
-          <p>Join thousands of happy homeowners and book your first service today.</p>
-          <button className="white">Book a Service</button>
-        </section>
-      </main>
-
-      <footer className="footer">
-        <div className="container cols">
-          <div><div className="brand">🏠 HomeXPros</div><p>Your trusted platform for booking local service professionals.</p></div>
-          <div><h4>Services</h4><p>Electrician<br/>Plumber<br/>Cleaner<br/>HVAC</p></div>
-          <div><h4>Company</h4><p>About Us<br/>How it Works<br/>Terms</p></div>
-          <div><h4>Contact Us</h4><p>✉️ support@homexpro.com<br/>📞 +1 800 123 4567<br/>📍 San Francisco, CA</p></div>
+      <section className="container section values">
+        <div className="section-head">
+          <p className="eyebrow">OUR VALUES</p>
+          <h2>What We Stand For</h2>
         </div>
-      </footer>
+        <div className="values-grid">
+          {values.map((value) => (
+            <article className="value-card" key={value.title}>
+              <span className="value-icon">{value.icon}</span>
+              <h3>{value.title}</h3>
+              <p>{value.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="container section story">
+        <div className="story-media">
+          <img
+            src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1200&q=80"
+            alt="Team collaboration"
+          />
+        </div>
+        <div className="story-copy">
+          <p className="eyebrow">OUR STORY</p>
+          <h2>From One Neighborhood to Dozens of Cities</h2>
+          <p>
+            We started HomeXPros with a simple mission: make reliable home services easy to find.
+            What began as a small local network has grown into a trusted platform used by
+            thousands of families.
+          </p>
+          <p>
+            Today, we continue to invest in quality checks, faster booking technology, and better
+            customer support—so every home project feels simple from start to finish.
+          </p>
+        </div>
+      </section>
+
+      <section className="container section">
+        <div className="section-head">
+          <p className="eyebrow">LEADERSHIP</p>
+          <h2>Meet the Team</h2>
+        </div>
+        <div className="team-grid">
+          {team.map((member) => (
+            <article className="team-card" key={member.name}>
+              <img src={member.image} alt={member.name} />
+              <h3>{member.name}</h3>
+              <p>{member.role}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="container cta">
+        <h2>Ready to book your next home service?</h2>
+        <p>Join thousands of homeowners who trust HomeXPros for quality, speed, and reliability.</p>
+        <button className="btn btn-light">Book a Service</button>
+      </section>
     </div>
   );
 }
